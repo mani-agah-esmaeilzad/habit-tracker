@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habittracker/components/my_drawer.dart';
 import 'package:habittracker/database/habit_database.dart';
+import 'package:habittracker/models/habit.dart';
+import 'package:habittracker/util/habit_util.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void initState() {
+
+    Provider.of<HabitDatabase>(context,listen: false).readHabits();
+    super.initState();
+  }
+
   final TextEditingController textController = TextEditingController();
   void createNewHabit() {
     showDialog(
@@ -32,11 +40,12 @@ class _HomePageState extends State<HomePage> {
             },
             child: const Text('Save'),
           ),
-          MaterialButton(onPressed: () {
-            Navigator.pop(context);
-            textController.clear();
-          },
-          child: const Text('Cancel'),
+          MaterialButton(
+            onPressed: () {
+              Navigator.pop(context);
+              textController.clear();
+            },
+            child: const Text('Cancel'),
           )
         ],
       ),
@@ -58,6 +67,27 @@ class _HomePageState extends State<HomePage> {
           Icons.add,
         ),
       ),
+      body: _buildHabitList(),
     );
+  }
+
+  Widget _buildHabitList() {
+    
+    final habitDatabase = context.watch<HabitDatabase>();
+    
+    List<Habit> currentHabits = habitDatabase.currentHabits;
+    
+    return ListView.builder(
+      itemCount: currentHabits.length,
+      itemBuilder:(context,index){
+
+      final habit = currentHabits[index];
+      
+      bool isCompletedToday = isHabitCompletedToday(habit.completedDays);
+      
+      return ListTile(
+        title: Text(habit.name),
+      );
+    });
   }
 }
