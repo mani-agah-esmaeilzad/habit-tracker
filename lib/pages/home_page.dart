@@ -150,6 +150,8 @@ class _HomePageState extends State<HomePage> {
 
     return ListView.builder(
         itemCount: currentHabits.length,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           final habit = currentHabits[index];
 
@@ -179,7 +181,7 @@ class _HomePageState extends State<HomePage> {
         if(snapshot.hasData){
           return MyHeatMap(startDate: snapshot.data!, datasets: prepHeaetMapDataset(currentHabits));
         }else{
-          return Container(;)
+          return Container();
         }
 
       },
