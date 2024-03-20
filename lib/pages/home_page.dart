@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habittracker/components/my_drawer.dart';
+import 'package:habittracker/components/my_habit_tile.dart';
 import 'package:habittracker/database/habit_database.dart';
 import 'package:habittracker/models/habit.dart';
 import 'package:habittracker/util/habit_util.dart';
@@ -14,8 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   void initState() {
-
-    Provider.of<HabitDatabase>(context,listen: false).readHabits();
+    Provider.of<HabitDatabase>(context, listen: false).readHabits();
     super.initState();
   }
 
@@ -52,6 +52,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void checkHabitOnOff(bool? value, Habit habit) {
+    if (value != null) {
+      context.read<HabitDatabase>().updateHabiteCompletion(habit.id, value);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,22 +78,21 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildHabitList() {
-    
     final habitDatabase = context.watch<HabitDatabase>();
-    
-    List<Habit> currentHabits = habitDatabase.currentHabits;
-    
-    return ListView.builder(
-      itemCount: currentHabits.length,
-      itemBuilder:(context,index){
 
-      final habit = currentHabits[index];
-      
-      bool isCompletedToday = isHabitCompletedToday(habit.completedDays);
-      
-      return ListTile(
-        title: Text(habit.name),
-      );
-    });
+    List<Habit> currentHabits = habitDatabase.currentHabits;
+
+    return ListView.builder(
+        itemCount: currentHabits.length,
+        itemBuilder: (context, index) {
+          final habit = currentHabits[index];
+
+          bool isCompletedToday = isHabitCompletedToday(habit.completedDays);
+
+          return MyHabitTile(
+              isCompleted: isCompletedToday,
+              text: habit.name,
+              onChanged: (value) => checkHabitOnOff(value, habit));
+        });
   }
 }
