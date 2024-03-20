@@ -81,5 +81,10 @@ class HabitDatabase extends ChangeNotifier {
     readHabits();
   }
 
-  
+  Future<void> deleteHabit(int id) async {
+    await isar.writeTxn(() async {
+      await isar.habits.delete(id);
+    });
+    readHabits();
+  }
 }
