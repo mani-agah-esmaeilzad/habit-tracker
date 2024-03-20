@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habittracker/components/my_drawer.dart';
 import 'package:habittracker/components/my_habit_tile.dart';
+import 'package:habittracker/components/my_heat_map.dart';
 import 'package:habittracker/database/habit_database.dart';
 import 'package:habittracker/models/habit.dart';
 import 'package:habittracker/util/habit_util.dart';
@@ -99,9 +100,7 @@ class _HomePageState extends State<HomePage> {
                 MaterialButton(
                   onPressed: () {
                     String newHabitName = textController.text;
-                    context
-                        .read<HabitDatabase>()
-                        .deleteHabit(habit.id);
+                    context.read<HabitDatabase>().deleteHabit(habit.id);
                     Navigator.pop(context);
                   },
                   child: const Text('Delete'),
@@ -135,7 +134,12 @@ class _HomePageState extends State<HomePage> {
           Icons.add,
         ),
       ),
-      body: _buildHabitList(),
+      body: ListView(
+        children: [
+          _buildHeatMap(),
+          _buildHabitList(),
+        ],
+      ),
     );
   }
 
@@ -162,5 +166,23 @@ class _HomePageState extends State<HomePage> {
             deleteHabit: (context) => deleteHabitBox(habit),
           );
         });
+  }
+
+  Widget _buildHeatMap() {
+    final habitDatabase = context.watch<HabitDatabase>();
+
+    List<Habit> currentHabits = habitDatabase.currentHabits;
+
+    return FutureBuilder<DateTime?>(
+      future: habitDatabase.getFirstLaunchDate(),
+      builder: (context,snapshot){
+        if(snapshot.hasData){
+          return MyHeatMap(startDate: snapshot.data!, datasets: prepHeaetMapDataset(currentHabits));
+        }else{
+          return Container(;)
+        }
+
+      },
+    );
   }
 }
