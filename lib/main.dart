@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:habittracker/pages/home_page.dart';
-import 'package:habittracker/theme/dark_mode.dart';
-import 'package:habittracker/theme/light_mode.dart';
 import 'package:habittracker/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 
