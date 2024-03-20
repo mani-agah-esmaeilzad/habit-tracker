@@ -58,6 +58,64 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void editHabitBox(Habit habit) {
+    textController.text = habit.name;
+
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              content: TextField(
+                controller: textController,
+              ),
+              actions: [
+                MaterialButton(
+                  onPressed: () {
+                    String newHabitName = textController.text;
+                    context
+                        .read<HabitDatabase>()
+                        .updateHabitName(habit.id, newHabitName);
+                    Navigator.pop(context);
+                    textController.clear();
+                  },
+                  child: const Text('Save'),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    textController.clear();
+                  },
+                  child: const Text('Cancel'),
+                )
+              ],
+            ));
+  }
+
+  void deleteHabitBox(Habit habit) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: const Text("Are you sure you want to delete?"),
+              actions: [
+                MaterialButton(
+                  onPressed: () {
+                    String newHabitName = textController.text;
+                    context
+                        .read<HabitDatabase>()
+                        .deleteHabit(habit.id);
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Delete'),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Cancel'),
+                )
+              ],
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,9 +148,15 @@ class _HomePageState extends State<HomePage> {
           bool isCompletedToday = isHabitCompletedToday(habit.completedDays);
 
           return MyHabitTile(
-              isCompleted: isCompletedToday,
-              text: habit.name,
-              onChanged: (value) => checkHabitOnOff(value, habit));
+            isCompleted: isCompletedToday,
+            text: habit.name,
+            onChanged: (value) => checkHabitOnOff(
+              value,
+              habit,
+            ),
+            editHabit: (context) => editHabitBox(habit),
+            deleteHabit: (context) => deleteHabitBox(habit),
+          );
         });
   }
 }
