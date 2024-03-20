@@ -25,4 +25,27 @@ class HabitDatabase extends ChangeNotifier {
     final settings = await isar.appSettings.where().findFirst();
     return settings?.firstLaunchDate;
   }
+
+  final List<Habit> currentHabits = [];
+
+  Future<void> addHabit(String habitName) async {
+    final newHabit = Habit()..name = habitName;
+
+    await isar.writeTxn(() => isar.habits.put(newHabit));
+
+    readHabits();
+  }
+
+  Future<void> readHabits() async {
+    List<Habit> fetchedHabits = await isar.habits.where().findAll();
+
+    currentHabits.clear();
+    currentHabits.addAll(fetchedHabits);
+
+    notifyListeners();
+  }
+
+  Future<void> updateHabiteCompletion(int id,bool isCompleted){
+    
+  }
 }
