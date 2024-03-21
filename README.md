@@ -1,41 +1,43 @@
-# Habit tracker
+# Habit Tracker
+
+Welcome to Habit Tracker, a practical and engaging application for tracking your habits. This application is built using the Flutter framework, enabling it to run on various platforms such as Web, iOS, Android, Linux, Windows, and MacOS.
 
 ## Introduction
-Welcome to the LIA Team Hygiene Store Accounting Software repository. This software is a comprehensive solution for managing the accounting needs of a hygiene store. It is developed using .Net Core 8 and Blazor and Mongodb, providing a modern and efficient platform for your business operations.
+
+Habit Tracker is an application that helps you track your habits and improve them. This application is built using the Flutter framework, which enables it to run on various platforms such as Web, iOS, Android, Linux, Windows, and MacOS.
 
 ## Installation
-To install the software, you need to have .Net Core 8 installed on your machine. Once you have the necessary environment, you can clone this repository and build the project using the following commands:
+To install the software, you need to have Flutter installed on your machine. Once you have the necessary environment, you can clone this repository and build the project using the following commands:
 ```
-git clone https://github.com/mani-agah-esmaeilzad/lia_team.git
+git clone https://github.com/your-github-username/habit-tracker.git
 
-cd lia_team dotnet build
-
-cd Client
-
-cd API
+cd habit-tracker
+flutter pub get
 ```
 
 This will compile the project and create the necessary binaries.
 
 ## Running the Software
-To run the software, navigate to the project directory and use the dotnet run command:
+To run the software, navigate to the project directory and use the flutter run command:
 ```
-cd Client dotnet run
-
-cd API dotnet run
+flutter run
 ```
-This will start the application, and you can access it via a web browser at ``` http://localhost:5000. ```
 
 ## Features
-The LIA Team Hygiene Store Accounting Software provides a wide range of features to facilitate the management of a hygiene store, including:
+The Habit Tracker provides a wide range of features to facilitate the management of your habits, including:
 
-- Inventory Management: Keep track of your stock levels, sales, and purchases.
-- Sales and Purchase Records: Maintain detailed records of all transactions.
-- Financial Reporting: Generate comprehensive financial reports to analyze your business performance.
-- User Management: Manage user roles and access levels within the software.
+- Habit Management: Keep track of your habits, their frequency, and progress.
+- Reminders: Set reminders for your habits to ensure you never miss them.
+- Statistics: View detailed statistics about your habits to analyze your performance.
+- Cross-Platform: Use the app on any platform - Web, iOS, Android, Linux, Windows, and MacOS.
+
+## Screenshots
+Here are a couple of screenshots from the application:
+
+(You can insert your images here)
 
 ## Contribution
-We welcome contributions to the LIA Team Hygiene Store Accounting Software. If you have a feature request, bug report, or wish to contribute code, please feel free to open an issue or submit a pull request.
+We welcome contributions to the Habit Tracker. If you have a feature request, bug report, or wish to contribute code, please feel free to open an issue or submit a pull request.
 
 ## License
 This project is licensed under the MIT [LICENSE](https://choosealicense.com/licenses/mit/). For more information, please refer to the LICENSE file.
@@ -45,6 +47,6 @@ If you have any questions, feedback, or need assistance, please feel free to rea
 
 - Email: maniagahdev@gmail.com
 - Website: www.maniagah.ir
-- Instagram: www.instagram.com/maniagah.aspx
+- Instagram: www.instagram.com/mani.aspx
 
 We look forward to your collaboration in improving this application!
