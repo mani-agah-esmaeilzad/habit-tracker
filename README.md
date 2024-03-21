@@ -36,6 +36,7 @@ Here are a couple of screenshots from the application:
 
 <img align="left" src="https://github.com/mani-agah-esmaeilzad/habit-tracker/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-03-21%20at%2014.15.08.png" width="350">
 <img aligh="center" src="https://github.com/mani-agah-esmaeilzad/habit-tracker/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-03-21%20at%2014.15.14.png" width="350">
+
 ## Contribution
 We welcome contributions to the Habit Tracker. If you have a feature request, bug report, or wish to contribute code, please feel free to open an issue or submit a pull request.
 
