@@ -40,6 +40,30 @@ Here are a couple of screenshots from the application:
 ## Contribution
 We welcome contributions to the Habit Tracker. If you have a feature request, bug report, or wish to contribute code, please feel free to open an issue or submit a pull request.
 
+Sure, I can add a section to the README that includes the links to all the packages used in the project. Here's how it could look:
+
+## Dependencies
+
+This project uses several dependencies to provide its functionality. Here are the links to their respective package pages for more information:
+
+- [provider](https://pub.dev/packages/provider)
+- [flutter](https://flutter.dev)
+- [cupertino_icons](https://pub.dev/packages/cupertino_icons)
+- [isar](https://pub.dev/packages/isar)
+- [isar_flutter_libs](https://pub.dev/packages/isar_flutter_libs)
+- [path_provider](https://pub.dev/packages/path_provider)
+- [flutter_slidable](https://pub.dev/packages/flutter_slidable)
+- [flutter_heatmap_calendar](https://pub.dev/packages/flutter_heatmap_calendar)
+
+And for the development dependencies:
+
+- [flutter_test](https://api.flutter.dev/flutter/flutter_test/flutter_test-library.html)
+- [flutter_lints](https://pub.dev/packages/flutter_lints)
+- [isar_generator](https://pub.dev/packages/isar_generator)
+- [build_runner](https://pub.dev/packages/build_runner)
+
+Please note that these links are subject to change as packages are updated or if the maintainers move the documentation. Always refer to the `pubspec.yaml` file for the most accurate and up-to-date list of dependencies. 
+
 ## License
 This project is licensed under the MIT [LICENSE](https://choosealicense.com/licenses/mit/). For more information, please refer to the LICENSE file.
 
