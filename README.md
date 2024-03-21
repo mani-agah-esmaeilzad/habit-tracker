@@ -34,8 +34,8 @@ The Habit Tracker provides a wide range of features to facilitate the management
 ## Screenshots
 Here are a couple of screenshots from the application:
 
-<img align="center" src="https://github.com/mani-agah-esmaeilzad/habit-tracker/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-03-21%20at%2014.15.08.png" width="350">
-<img align="center" src="https://github.com/mani-agah-esmaeilzad/habit-tracker/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-03-21%20at%2014.15.14.png" width="350">
+<img align="left" src="https://github.com/mani-agah-esmaeilzad/habit-tracker/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-03-21%20at%2014.15.08.png" width="350">
+<img align="right" src="https://github.com/mani-agah-esmaeilzad/habit-tracker/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-03-21%20at%2014.15.14.png" width="350">
 
 
 
