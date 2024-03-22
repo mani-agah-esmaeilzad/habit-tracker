@@ -12,6 +12,7 @@ To install the software, you need to have Flutter installed on your machine. Onc
 git clone https://github.com/your-github-username/habit-tracker.git
 
 cd habit-tracker
+
 flutter pub get
 ```
 
